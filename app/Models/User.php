@@ -50,7 +50,7 @@ class User extends Authenticatable
 
 
     /**
-     * Get the chirps for the user.
+     * Get the chiper for the user.
      */
     public function chiper(): HasMany
     {

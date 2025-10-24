@@ -12,7 +12,7 @@ Route::get('/', [ChiperController::class, 'index']);
 
 Route::middleware('auth')->group(function(){
 
-    Route::post('/chiper', [ChiperController::class, 'store']);
+    Route::post('/chipers', [ChiperController::class, 'store']);
     Route::get('/chiper/{chiper}/edit', [ChiperController::class, 'edit']);
     Route::put('/chiper/{chirp}', [ChiperController::class, 'update']);
     Route::delete('/chiper/{chiper}', [ChiperController::class, 'destroy']);

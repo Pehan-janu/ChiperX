@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Chiper;
 use  Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\User;
+use App\Models\User;
 
 class ChiperController extends Controller
 {
@@ -19,7 +19,7 @@ class ChiperController extends Controller
    
 public function index()
 {
-    $chirps = Chiper::with('user')
+    $chiper = Chiper::with('user')
     ->latest()
     ->take(50)
     ->get();
@@ -46,7 +46,7 @@ public function store(Request $request)
     ]);
  
     // Use the authenticated user
-    auth()->user()->chiper()->create($validated);
+    $request->user()->chiper()->create($validated);
  
     return redirect('/')->with('success', 'Your chiper has been posted!');
 }
